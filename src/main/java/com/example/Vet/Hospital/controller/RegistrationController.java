@@ -5,6 +5,7 @@ import com.example.Vet.Hospital.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RegistrationController {
     private final UserServiceImpl userService;
     @PostMapping
-    public ResponseEntity<?> registration(User user) {
+    public ResponseEntity<?> registration(@RequestBody User user) {
         userService.createUser(user);
         return null;
     }
