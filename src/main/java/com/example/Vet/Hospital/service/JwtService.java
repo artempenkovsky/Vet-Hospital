@@ -1,4 +1,4 @@
-package com.example.Vet.Hospital.Service;
+package com.example.Vet.Hospital.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

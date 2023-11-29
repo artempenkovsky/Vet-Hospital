@@ -1,7 +1,7 @@
 package com.example.Vet.Hospital.controller;
 
-import com.example.Vet.Hospital.Service.CustomUserDetailService;
-import com.example.Vet.Hospital.Service.JwtService;
+import com.example.Vet.Hospital.service.CustomUserDetailService;
+import com.example.Vet.Hospital.service.JwtService;
 import com.example.Vet.Hospital.dto.JwtRequestDTO;
 import com.example.Vet.Hospital.dto.JwtResponseDTO;
 import lombok.RequiredArgsConstructor;

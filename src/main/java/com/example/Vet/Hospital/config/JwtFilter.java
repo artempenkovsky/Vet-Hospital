@@ -1,6 +1,6 @@
 package com.example.Vet.Hospital.config;
 
-import com.example.Vet.Hospital.Service.JwtService;
+import com.example.Vet.Hospital.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

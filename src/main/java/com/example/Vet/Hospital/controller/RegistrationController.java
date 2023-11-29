@@ -1,6 +1,6 @@
 package com.example.Vet.Hospital.controller;
 
-import com.example.Vet.Hospital.Service.impl.UserServiceImpl;
+import com.example.Vet.Hospital.service.impl.UserServiceImpl;
 import com.example.Vet.Hospital.dto.UserDTO;
 import com.example.Vet.Hospital.dto.UserRequestDTO;
 import com.example.Vet.Hospital.validation.UserRequestDTOValidation;

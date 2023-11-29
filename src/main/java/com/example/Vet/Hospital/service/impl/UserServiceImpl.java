@@ -1,6 +1,6 @@
-package com.example.Vet.Hospital.Service.impl;
+package com.example.Vet.Hospital.service.impl;
 
-import com.example.Vet.Hospital.Service.UserService;
+import com.example.Vet.Hospital.service.UserService;
 import com.example.Vet.Hospital.dto.UserDTO;
 import com.example.Vet.Hospital.dto.UserRequestDTO;
 import com.example.Vet.Hospital.model.User;

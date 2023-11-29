@@ -1,4 +1,4 @@
-package com.example.Vet.Hospital.Service;
+package com.example.Vet.Hospital.service;
 
 import com.example.Vet.Hospital.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
