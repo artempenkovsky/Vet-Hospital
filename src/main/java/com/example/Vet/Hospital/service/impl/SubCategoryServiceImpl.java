@@ -1,6 +1,7 @@
 package com.example.Vet.Hospital.service.impl;
 
 import com.example.Vet.Hospital.dto.SubCategoryDTO;
+import com.example.Vet.Hospital.model.Price;
 import com.example.Vet.Hospital.model.SubCategory;
 import com.example.Vet.Hospital.repository.SubCategoryRepository;
 import com.example.Vet.Hospital.service.SubCategoryService;
@@ -9,6 +10,7 @@ import com.example.Vet.Hospital.transformer.SubCategoryToSubCategoryDTOTransform
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,20 +20,34 @@ public class SubCategoryServiceImpl implements SubCategoryService {
     private final SubCategoryRepository subCategoryRepository;
     private final SubCategoryDtoToSubCategoryTransformer subCategoryTransformer;
     private final SubCategoryToSubCategoryDTOTransformer subCategoryToSubCategoryDTOTransformer;
-    @Override
-    public SubCategoryDTO addSubCategory(SubCategoryDTO subCategoryDTO) {
-        SubCategory subCategory = subCategoryTransformer.transform(subCategoryDTO);
-        SubCategory save = subCategoryRepository.save(subCategory);
-        SubCategoryDTO transform = subCategoryToSubCategoryDTOTransformer.transform(save);
-        return transform;
-    }
+//    @Override
+//    public SubCategoryDTO addSubCategory(SubCategoryDTO subCategoryDTO) {
+//        SubCategory subCategory = subCategoryTransformer.transform(subCategoryDTO);
+//        SubCategory save = subCategoryRepository.save(subCategory);
+//        SubCategoryDTO transform = subCategoryToSubCategoryDTOTransformer.transform(save);
+//        return transform;
+//    }
 
     @Override
     public List<SubCategoryDTO> getAllCategories(Integer categoryId) {
         return subCategoryRepository
                 .findByCategory_Id(categoryId)
                 .stream()
-                .map(subCategoryToSubCategoryDTOTransformer ::transform)
+                .map(subCategoryToSubCategoryDTOTransformer::transform)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public SubCategoryDTO addSubCategory(SubCategoryDTO subCategoryDTO) {
+        SubCategory subCategory = subCategoryTransformer.transform(subCategoryDTO);
+        Price price = new Price();
+        price.setPrice(subCategoryDTO.getPrice());
+        price.setDateOfStart(LocalDate.now());
+        price.setActive(true);
+        price.setSubCategory(subCategory);
+        subCategory.getPrices().add(price);
+        SubCategory save = subCategoryRepository.save(subCategory);
+        SubCategoryDTO transform = subCategoryToSubCategoryDTOTransformer.transform(save);
+        return transform;
     }
 }
